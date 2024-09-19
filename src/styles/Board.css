@@ -1,0 +1,139 @@
+*{
+    box-sizing: border-box;
+}
+
+p{
+    margin: 0;
+}
+
+.kanban-board {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+    height: 100%;
+    width: 100%;
+}
+
+.ticket-group {
+  border-radius: 4px;
+  padding: 10px;
+  margin: 10px;
+  min-width: 200px;
+  display: inline-block;
+  vertical-align: top;
+  max-width: 300px;
+}
+
+.ticket {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #fff;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.ticket p{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+.details{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+.ticket-id{
+    font-size: 14px;
+    font-weight: 500;
+    color: rgb(173, 171, 171);
+}
+
+.ticket-title{
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.feature-container{
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  width: max-content;
+}
+.feature-container img{
+  border: 1px solid rgb(234, 234, 234);
+  border-radius: 5px;
+  padding: 2px;
+}
+.feature-tag{
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  border: 1px solid rgb(234, 234, 234);
+  border-radius: 5px;
+  padding: 0 5px;
+}
+.feature-icon{
+  width: 10px;
+  height: 10px;
+  background-color: rgb(186, 186, 186);
+  border-radius: 50%;
+}
+
+/* .ticket.urgent {
+  border-left: 5px solid red;
+}
+
+.ticket.high {
+  border-left: 5px solid orange;
+}
+
+.ticket.medium {
+  border-left: 5px solid yellow;
+}
+
+.ticket.low {
+  border-left: 5px solid green;
+}
+
+.ticket.no-priority {
+  border-left: 5px solid grey;
+} */
+
+
+/* DISPLAY BUTTON */
+
+.display-icon {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid #ddd;
+  height: fit-content;
+  width: fit-content;
+  padding: 5px;
+  margin: 10px 0 15px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.display-icon img{
+    width: 20px;
+    height: 20px;
+}
+
+.popup{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: #f3f3f3;
+    margin-left: 20px;
+    margin-top: 10px;
+    padding: 15px;
+    border-radius: 10px;
+}

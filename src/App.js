@@ -1,24 +1,51 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import { fetchTickets } from "./utils/api"; 
+import Board from "./components/Board";
 
 function App() {
+  const [tickets, setTickets] = useState([]);
+  const [users, setUsers] = useState([]); 
+  const [grouping, setGrouping] = useState(() => {
+    return localStorage.getItem("grouping") || "status";
+  });
+  const [sorting, setSorting] = useState(() => {
+    return localStorage.getItem("sorting") || "priority";
+  });
+
+  useEffect(() => {
+    fetchTickets().then((data) => {
+      if (data && Array.isArray(data.tickets)) {
+        setTickets(data.tickets);
+      } else {
+        console.error("Expected an array of tickets");
+      }
+      if (data && Array.isArray(data.users)) {
+        setUsers(data.users); 
+      } else {
+        console.error("Expected an array of users");
+      }
+    });
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("grouping", grouping);
+  }, [grouping]);
+
+  useEffect(() => {
+    localStorage.setItem("sorting", sorting);
+  }, [sorting]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Board
+        tickets={tickets}
+        users={users} 
+        grouping={grouping}
+        sorting={sorting}
+        setGrouping={setGrouping}
+        setSorting={setSorting}
+      />
+    </>
   );
 }
 

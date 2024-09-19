@@ -1,0 +1,8 @@
+.sorting-options{
+    display: flex;
+    justify-content: space-between;
+    gap: 6rem;
+}
+.sorting-options label{
+    color: #818183;
+}
